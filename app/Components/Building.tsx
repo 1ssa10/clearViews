@@ -1,14 +1,27 @@
-import { useGLTF } from "@react-three/drei";
 import React from "react";
+import { useGLTF } from "@react-three/drei";
+import * as THREE from "three";
 
-const Building = () => {
-  const building = useGLTF("./building.glb");
-  console.log(building);
+export function Model(props: JSX.IntrinsicElements["group"]) {
+  const { nodes, materials } = useGLTF("/building.glb");
   return (
-    <>
-      <primitive object={building.scene} />
-    </>
+    <group {...props} dispose={null}>
+      <group rotation={[Math.PI / 2, 0, 0]}>
+        <mesh
+          geometry={(nodes.Plane005 as THREE.Mesh).geometry}
+          material={materials.windows}
+        />
+        <mesh
+          geometry={(nodes.Plane005_1 as THREE.Mesh).geometry}
+          material={materials["Material.009"]}
+        />
+        <mesh
+          geometry={(nodes.Plane005_2 as THREE.Mesh).geometry}
+          material={materials["Material.010"]}
+        />
+      </group>
+    </group>
   );
-};
+}
 
-export default Building;
+useGLTF.preload("/building.glb");
