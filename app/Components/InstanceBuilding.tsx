@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Merged, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 // import { useFrame } from "@react-three/fiber";
-import { Model } from "./Building";
+import { Model } from "./3dmodels/Building";
 
 const InstanceBuilding = () => {
   const { nodes } = useGLTF("./building.glb");

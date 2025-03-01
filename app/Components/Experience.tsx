@@ -6,6 +6,7 @@ import React from "react";
 import { Environment, ScrollControls } from "@react-three/drei";
 import InstanceBuilding from "./InstanceBuilding";
 import { ScrollMechanism } from "./ScrollMechanism";
+import Worker from "./Worker";
 
 const Experience = () => {
   return (
@@ -15,6 +16,7 @@ const Experience = () => {
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <InstanceBuilding />
+          <Worker />
           <ScrollMechanism />
           <Environment files="/kloofendal_48d_partly_cloudy_puresky_1k.hdr" />
         </ScrollControls>
